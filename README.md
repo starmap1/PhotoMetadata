@@ -1,2 +1,0 @@
-# PhotoMetadata
-Photo Metadata
