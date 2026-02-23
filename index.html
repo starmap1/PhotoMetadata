@@ -405,46 +405,46 @@
                 MaxAperture: exifData.MaxAperture ? `f/${exifData.MaxAperture}` : 'N/A'
             };
 
-            // Image Information
-            const imageInfo = {
-                ImageWidth: exifData.ImageWidth ? `${exifData.ImageWidth}px` : 'N/A',
-                ImageHeight: exifData.ImageHeight ? `${exifData.ImageHeight}px` : 'N/A',
-                ColorSpace: exifData.ColorSpace || 'N/A',
-                Orientation: getOrientationText(exifData.Orientation),
-                ResolutionUnit: exifData.ResolutionUnit || 'N/A',
-                XResolution: exifData.XResolution ? `${exifData.XResolution} dpi` : 'N/A',
-                YResolution: exifData.YResolution ? `${exifData.YResolution} dpi` : 'N/A'
-            };
+<!--            // Image Information-->
+<!--            const imageInfo = {-->
+<!--                ImageWidth: exifData.ImageWidth ? `${exifData.ImageWidth}px` : 'N/A',-->
+<!--                ImageHeight: exifData.ImageHeight ? `${exifData.ImageHeight}px` : 'N/A',-->
+<!--                ColorSpace: exifData.ColorSpace || 'N/A',-->
+<!--                Orientation: getOrientationText(exifData.Orientation),-->
+<!--                ResolutionUnit: exifData.ResolutionUnit || 'N/A',-->
+<!--                XResolution: exifData.XResolution ? `${exifData.XResolution} dpi` : 'N/A',-->
+<!--                YResolution: exifData.YResolution ? `${exifData.YResolution} dpi` : 'N/A'-->
+<!--            };-->
 
-            // Exposure Information
-            const exposureInfo = {
-                ExposureMode: getExposureMode(exifData.ExposureMode),
-                ExposureProgram: getExposureProgram(exifData.ExposureProgram),
-                Flash: getFlashText(exifData.Flash),
-                WhiteBalance: getWhiteBalance(exifData.WhiteBalance),
-                MeteringMode: getMeteringMode(exifData.MeteringMode),
-                Brightness: exifData.BrightnessValue ? exifData.BrightnessValue.toFixed(2) : 'N/A',
-                LightSource: getLightSource(exifData.LightSource)
-            };
+<!--            // Exposure Information-->
+<!--            const exposureInfo = {-->
+<!--                ExposureMode: getExposureMode(exifData.ExposureMode),-->
+<!--                ExposureProgram: getExposureProgram(exifData.ExposureProgram),-->
+<!--                Flash: getFlashText(exifData.Flash),-->
+<!--                WhiteBalance: getWhiteBalance(exifData.WhiteBalance),-->
+<!--                MeteringMode: getMeteringMode(exifData.MeteringMode),-->
+<!--                Brightness: exifData.BrightnessValue ? exifData.BrightnessValue.toFixed(2) : 'N/A',-->
+<!--                LightSource: getLightSource(exifData.LightSource)-->
+<!--            };-->
 
-            // GPS Information
-            const gpsInfo = exifData.latitude && exifData.longitude ? {
-                Latitude: `${Math.abs(exifData.latitude).toFixed(6)}° ${exifData.latitude > 0 ? 'N' : 'S'}`,
-                Longitude: `${Math.abs(exifData.longitude).toFixed(6)}° ${exifData.longitude > 0 ? 'E' : 'W'}`,
-                Altitude: exifData.altitude ? `${exifData.altitude.toFixed(2)}m` : 'N/A',
-                GPSDateStamp: exifData.GPSDateStamp || 'N/A'
-            } : null;
+<!--            // GPS Information-->
+<!--            const gpsInfo = exifData.latitude && exifData.longitude ? {-->
+<!--                Latitude: `${Math.abs(exifData.latitude).toFixed(6)}° ${exifData.latitude > 0 ? 'N' : 'S'}`,-->
+<!--                Longitude: `${Math.abs(exifData.longitude).toFixed(6)}° ${exifData.longitude > 0 ? 'E' : 'W'}`,-->
+<!--                Altitude: exifData.altitude ? `${exifData.altitude.toFixed(2)}m` : 'N/A',-->
+<!--                GPSDateStamp: exifData.GPSDateStamp || 'N/A'-->
+<!--            } : null;-->
 
             // Build HTML
             html += buildCameraSection(cameraInfo);
             html += buildLensSection(lensInfo);
             html += buildMetadataSection('Shooting Settings', shootingSettings);
-            html += buildMetadataSection('Image Information', imageInfo);
-            html += buildMetadataSection('Exposure Information', exposureInfo);
+<!--            html += buildMetadataSection('Image Information', imageInfo);-->
+<!--            html += buildMetadataSection('Exposure Information', exposureInfo);-->
             
-            if (gpsInfo) {
-                html += buildMetadataSection('GPS Information', gpsInfo);
-            }
+<!--            if (gpsInfo) {-->
+<!--                html += buildMetadataSection('GPS Information', gpsInfo);-->
+<!--            }-->
 
             metadataSection.innerHTML = html;
             previewSection.classList.add('active');
